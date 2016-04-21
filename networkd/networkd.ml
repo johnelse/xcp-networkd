@@ -101,8 +101,11 @@ let _ =
 		Debug.disable "http";
 
 		handle_shutdown ();
-		Debug.with_thread_associated "main" start server
+		Debug.with_thread_associated "main" start server;
+		debug "CA-208547: start_fn finished"
 	) ();
+
+	debug "CA-208547: maybe_daemonize finished";
 
 	while true do
 		Thread.delay 300.;
